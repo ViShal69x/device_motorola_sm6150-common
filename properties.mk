@@ -143,7 +143,15 @@ PRODUCT_PROPERTY_OVERRIDES += \
     vendor.display.enable_optimize_refresh=1 \
     vendor.display.use_smooth_motion=1 \
     vendor.display.disable_offline_rotator=1 \
-    vendor.display.disable_hw_recovery_dump=1
+    vendor.display.disable_hw_recovery_dump=1 \
+    ro.opengles.version=196610 \
+    vendor.gralloc.disable_ubwc=0 \
+    debug.sf.latch_unsignaled=1 \
+    ro.surface_flinger.force_hwc_copy_for_virtual_displays=true \
+    ro.surface_flinger.max_frame_buffer_acquired_buffers=3 \
+    ro.surface_flinger.max_virtual_display_dimension=4096 \
+    ro.surface_flinger.protected_contents=true \
+    ro.surface_flinger.use_color_management=1
 
 # DRM
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -156,25 +164,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # GPS
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     persist.vendor.overlay.izat.optin=rro
-
-# Graphics
-PRODUCT_PROPERTY_OVERRIDES += \
-    debug.egl.hw=0 \
-    debug.mdpcomp.logs=0 \
-    debug.sf.hw=0 \
-    debug.sf.latch_unsignaled=1 \
-    persist.demo.hdmirotationlock=false \
-    persist.sys.sf.color_saturation=1.0 \
-    persist.sys.sf.native_mode=1 \
-    persist.sys.sf.force_brightness_capability=1 \
-    debug.sf.enable_gl_backpressure=1 \
-    ro.opengles.version=196610 \
-    ro.gfx.driver.1=com.qualcomm.qti.gpudrivers.sm6150.api30 \
-    vendor.display.enable_default_color_mode=1 \
-    vendor.gralloc.disable_ubwc=0
-
-PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
-    debug.sf.enable_hwc_vds=1
 
 # IMS
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -190,20 +179,20 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.incremental.enable=1
 
 # Media
-PRODUCT_PROPERTY_OVERRIDES += \
-    media.settings.xml=/vendor/etc/media_profiles_vendor.xml \
+PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     debug.stagefright.ccodec=1 \
     debug.stagefright.omx_default_rank=0 \
-    persist.vendor.media.recorder.bt709=true
-
-PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
-    av.offload.enable=true \
+    media.aac_51_output_enabled=true \
+    media.stagefright.enable-aac=true \
+    media.stagefright.enable-fma2dp=true \
+    media.stagefright.enable-http=true \
+    media.stagefright.enable-player=true \
+    media.stagefright.enable-qcp=true \
+    media.stagefright.enable-scan=true \
+    media.stagefright.thumbnail.prefer_hw_codecs=true \
+    persist.mm.enable.prefetch=true \
     ro.media.recorder-max-base-layer-fps=60 \
-    vendor.swvdec.log.level=1 \
-    vendor.vidc.debug.level=1
-
-PRODUCT_PRODUCT_PROPERTIES += \
-    media.stagefright.thumbnail.prefer_hw_codecs=true
+    vendor.mm.enable.qcom_parser=63963135
 
 # Memory optimizations
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
@@ -284,23 +273,6 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     ro.telephony.default_network=10,10 \
     ro.vendor.use_data_netmgrd=true \
     telephony.lteOnCdmaDevice=1,1
-
-# SurfaceFlinger
-PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
-    ro.surface_flinger.has_wide_color_display=true \
-    ro.surface_flinger.has_HDR_display=true \
-    ro.surface_flinger.use_color_management=true \
-    ro.surface_flinger.wcg_composition_dataspace=143261696 \
-    ro.surface_flinger.protected_contents=true
-
-PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
-    debug.sf.use_phase_offsets_as_durations=1 \
-    debug.sf.late.sf.duration=10500000 \
-    debug.sf.late.app.duration=20500000 \
-    debug.sf.early.sf.duration=21000000 \
-    debug.sf.early.app.duration=16500000 \
-    debug.sf.earlyGl.sf.duration=13500000 \
-    debug.sf.earlyGl.app.duration=21000000
 
 # Sensor
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
