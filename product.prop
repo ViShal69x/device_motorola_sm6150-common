@@ -1,3 +1,16 @@
+# system props for the MM modules
+media.stagefright.enable-player=true
+media.stagefright.enable-http=true
+media.stagefright.enable-aac=true
+media.stagefright.enable-qcp=true
+media.stagefright.enable-scan=true
+mmp.enable.3g2=true
+media.aac_51_output_enabled=true
+mm.enable.smoothstreaming=true
+#13631487 is decimal sum of supported codecs in AAL
+#codecs:(PARSER_)AAC AC3 AMR_NB AMR_WB ASF AVI DTS FLV 3GP 3G2 MKV MP2PS MP2TS MP3 OGG QCP WAV FLAC AIFF APE DSD
+mm.enable.qcom_parser=13631487
+persist.mm.enable.prefetch=true
 # Set the Bluetooth Class of Device
 # Service Field: 0x5A -> 90
 #    Bit 17: Networking
@@ -7,7 +20,6 @@
 # MAJOR_CLASS: 0x02 -> 2 (Phone)
 # MINOR_CLASS: 0x0C -> 12 (Smart Phone)
 bluetooth.device.class_of_device=90,2,12
-
 # Set supported Bluetooth profiles to enabled
 bluetooth.profile.asha.central.enabled?=true
 bluetooth.profile.a2dp.source.enabled?=true

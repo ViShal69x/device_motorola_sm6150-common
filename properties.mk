@@ -191,10 +191,12 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Media
 PRODUCT_PROPERTY_OVERRIDES += \
-    media.settings.xml=/vendor/etc/media_profiles_vendor.xml \
-    debug.stagefright.ccodec=1 \
-    debug.stagefright.omx_default_rank=0 \
-    persist.vendor.media.recorder.bt709=true
+    debug.stagefright.omx_default_rank=512 \
+    debug.media.transcoding.codec_max_operating_rate_720P=240 \
+    debug.media.transcoding.codec_max_operating_rate_1080P=120 \
+    debug.stagefright.c2inputsurface=-1 \
+    vendor.media.omx=0 \
+    vendor.qc2.venc.avgqp.enable=1
 
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     av.offload.enable=true \
